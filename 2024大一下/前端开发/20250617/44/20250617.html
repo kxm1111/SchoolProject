@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        .slider{
+            width: 580px;
+            height: 408px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .slider-wrapper{
+            position: relative;
+            width: 100%;
+            height: 326.25px;
+            background-image: url("./1.webp");
+            background-size: cover;
+        }
+        .slider-wrapper .conter{
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 120%;
+            height: 30%;
+            background: #14273e;
+            filter: blur(20px);
+        }
+        .slider-footer{
+            position: relative;
+            height: 81.75px;
+            background-color: #14273e;
+            padding: 12px 12px 0 12px;
+        }
+        .slider-footer p{
+            color:#fff;
+            font-size: 18px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .slider-indicator{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .slider-indicator li{
+            width: 8px;
+            height: 8px;
+            margin: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.4;
+            cursor: pointer;
+        }
+        .slider-indicator li.active{
+            width: 12px;
+            height: 12px;
+            opacity: 1;
+        }
+        .d1 {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slider-wrapper">
+            <div class="conter"></div>
+        </div>
+        <div class="slider-footer">
+            <p>太好了，是直球侠，我们有救了！</p>
+            <ul class="slider-indicator">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="d1">
+                <button class="b1" onclick="b1()">&lt;</button>
+                <button class="b2" onclick="b2()">&gt;</button>
+                <!-- <input type="button" value="<" class="b1" onclick="b1()">
+                <input type="button" value=">" class="b2" onclick="b2()"> -->
+            </div>
+        </div>
+        
+        
+    </div>
+    <script>
+        const sliderDate = [
+            {url:'1.webp',title:'太好了，是直球侠，我们有救了！',color:'#14273e'},
+            {url:'2.webp',title:'国服参与任务送巴巴洛丝主战者',color:'#716156'},
+            {url:'3.webp',title:'33岁女生被母亲控制到窒息？心理学博士拆解原生家庭之痛【哔有反响】',color:'#dc8661'},
+            {url:'4.webp',title:'金奖30万！原创动画短片大赛征稿中',color:'#353451'},
+            {url:'5.webp',title:'看户外大片，抽限量好礼！',color:'#8e98f7'},
+            {url:'6.webp',title:'拿上路书，即刻开徒！',color:'#283940'},
+            {url:'7.webp',title:'户外装备深度测评就看B站！',color:'#00030c'},
+            {url:'8.webp',title:'我的师兄太卑鄙了！',color:'#413327'},
+            {url:'9.webp',title:'大女主爽文！莫妄手刃陈四七',color:'#597083'},
+        ]
+        // 获取页面元素
+        const bgimg = document.querySelector('.slider-wrapper')
+        const conter = document.querySelector('.slider-wrapper .conter')
+        const footer = document.querySelector('.slider-footer')
+        const p = document.querySelector('.slider-footer p')
+        const li = document.querySelectorAll('.slider-indicator li')
+        let i = 0
+        setInterval(function(){
+            li[i].classList.remove('active')
+            i++
+            if (i >= sliderDate.length) {
+                i = 0
+            }
+            bgimg.style.backgroundImage = `url("./${sliderDate[i].url}")`
+            conter.style.background = sliderDate[i].color
+            footer.style.backgroundColor = sliderDate[i].color
+            p.innerHTML = sliderDate[i].title
+            li[i].classList.add('active')
+        },2000)
+    </script>
+    <script>
+        function b1() {
+            
+        }
+
+        function b2() {
+            
+        }
+    </script>
+</body>
+</html>

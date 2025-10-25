@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20250610</title>
+</head>
+
+<body>
+    事件监听
+    语法：事件源（DOM对象）.addEventListener('事件类型', 执行函数)
+    事件监听三要素：事件源、事件类型、事件处理函数
+
+    事件监听版本
+    DOM L0：DOM发展第一版本
+    语法：事件源.on事件类型 = 执行函数
+    onchange onclick onmouseover onmouseout onkeydown onload
+
+
+
+    <button>按钮</button>
+    <img src="" alt="" class="display">
+    <script>
+        const img = document.querySelector('.display')
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            img.classList.remove('display')
+        })
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.bilibili.com/video/BV1ukThz6EyB/?spm_id_from=333.1007.tianma.4-4-14.click
+
+
+
+Axure RP 9
+
+
+
+https://blog.csdn.net/zhangfuping123456789/article/details/144579404
+
+
+
+
+
+点击链接查看和 Kimi 的对话 https://www.kimi.com/share/d13vcl8gts41cmsa9ku0
+
+
+
+
+
+
+User: 用html和css做个一模一样的，用js，点击叉号不显示
+
+
+
+
+
+
+User: 用html和css做个一模一样的，用js，点击叉号不显示
+Kimi: 当然可以。下面是一个简单的HTML、CSS和JavaScript代码示例，用于创建一个与您提供的图像相似的弹窗，并实现点击叉号时隐藏弹窗的功能。
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>弹窗示例</title>
+<style>
+    .popup {
+        width: 300px;
+        padding: 10px;
+        background-color: #00aaff;
+        color: white;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .popup img {
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 10px;
+    }
+    .popup .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .popup button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+        color: #00aaff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .popup button:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+
+<div id="popup" class="popup">
+    <img src="https://via.placeholder.com/50" alt="卡通形象">
+    <div class="close" onclick="closePopup()">&times;</div>
+    <p>登录哔哩哔哩，高清视频免费看！</p>
+    <p>更多登录后权益等你解锁</p>
+    <button onclick="login()">立即登录</button>
+</div>
+
+<script>
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    function login() {
+        alert('登录功能尚未实现');
+    }
+</script>
+
+</body>
+</html>
+```
+
+### 说明：
+1. **HTML**：创建了一个包含图片、文本和一个按钮的弹窗。
+2. **CSS**：设置了弹窗的样式，包括背景颜色、字体颜色、位置、阴影等。
+3. **JavaScript**：
+   - `closePopup()` 函数用于隐藏弹窗。
+   - `login()` 函数是一个占位函数，用于演示点击按钮时的行为。
+
+您可以将上述代码复制到一个HTML文件中，然后在浏览器中打开以查看效果。点击叉号将会隐藏弹窗。

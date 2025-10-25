@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .slider {
+            width: 580px;
+            height: 408px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 326.25px;
+            background-image: url(bilibili/1.avif);
+            background-size: cover;
+        }
+
+        .slider-wrapper .conter {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 120%;
+            height: 30%;
+            background: #14273e;
+            filter: blur(22px);
+        }
+
+        .slider-footer {
+            position: relative;
+            height: 81.75px;
+            background-color: #14273e;
+            padding: 12px 12px 0 12px;
+        }
+
+        .slider-footer p {
+            color: #fff;
+            font-size: 18px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .slider-indicator {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-indicator li {
+            width: 8px;
+            height: 8px;
+            margin: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slider-wrapper">
+            <div class="conter"></div>
+        </div>
+        <div class="slider-footer">
+            <p></p>
+            <ul class="slider-indicator">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

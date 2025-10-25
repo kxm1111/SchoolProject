@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<form action="1.php" method="post" id="f">
+    用户名：<input type="text" id="uname" name="uname">
+    密码：<input type="password" id="pwd" name="pwd">
+    <input type="button" value="注册" onclick="fs()">
+</form>
+<script>
+    function fs() {
+        var uname = document.getElementById('uname').value
+        var pwd = document.getElementById('pwd').value
+        if (uname == null || uname.trim() == '') {
+            return
+        }
+        if (pwd == null || pwd.trim() == '') {
+            return
+        }
+        var f = document.getElementById('f')
+        f.submit()
+    }
+</script>
+
+
+
+</body>
+
+</html>

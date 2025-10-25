@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 4
+        // 用switch语句，
+        // 做一个简单的计算器，
+        // + - * /，
+        // 并输出相应的值，
+        // 规定两个数字之间操作
+        // 获取用户输入的两个数字和操作符
+        let number1 = parseFloat(prompt("请输入第一个数字："));
+        let operator = prompt("请输入操作符（+、-、*、/）：");
+        let number2 = parseFloat(prompt("请输入第二个数字："));
+        // 初始化结果变量
+        let result;
+        // 使用 switch 语句根据操作符进行计算
+        switch (operator) {
+            case "+":
+                result = number1 + number2;
+                break;
+            case "-":
+                result = number1 - number2;
+                break;
+            case "*":
+                result = number1 * number2;
+                break;
+            case "/":
+                if (number2 !== 0) {
+                    result = number1 / number2;
+                } else {
+                    alert("除数不能为0！");
+                    result = "错误";
+                }
+                break;
+            default:
+                alert("无效的操作符！");
+                result = "错误";
+        }
+        // 输出结果
+        if (result !== "错误") {
+            alert(`计算结果为：${result}`);
+        }
+    </script>
+
+
+
+
+
+
+</body>
+</html>

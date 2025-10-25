@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .display{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 事件监听：给DOM元素添加事件监听 -->
+    <button>按钮</button><br>
+    <img src="./1.avif" alt="" class="display">
+    <script>
+        // 语法：事件源（DOM对象）.addEventListener('事件类型',执行函数)
+        // 事件监听三要素：事件源、事件类型、事件处理函数
+        const img = document.querySelector('.display')
+        const btn = document.querySelector('button')
+        // btn.addEventListener('click',function(){
+        //     // img.classList.remove('display')
+        //     alert(1234)
+        // })
+
+        // 事件监听版本
+        // DOM L0：DOM发展第一版本 
+        // 语法：事件源.on事件类型 = 执行函数
+        // onchange onclick onmouseover onmouseout onkeydown onload
+        // 相同事件源添加相同类型事件监听会被覆盖
+        // btn.onclick = function(){
+        //     alert(123)
+        // }
+        // btn.onclick = function(){
+        //     alert(456)
+        // }
+        // DOM L1：成为w3c推荐标准
+        // DOM L2：使用了addEventListener注册事件
+        // DOM L3：在L2基础上重新定义事件，也新增一些新事件类型
+        // 相同事件源添加相同类型事件监听不会被覆盖
+        btn.addEventListener('click',function(){
+            alert(123)
+        })
+        btn.addEventListener('click',function(){
+            alert(456)
+        })
+    </script>
+</body>
+</html>

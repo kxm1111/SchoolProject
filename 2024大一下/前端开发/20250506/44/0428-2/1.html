@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数
+        // 函数定义
+        // 1.函数声明
+        // function 函数名(形参) {
+        //     函数体
+        // }
+        // 提升：函数声明会被提升到作用域顶部，可以在定义前使用
+        // getNumber(9)
+        // function getNumber(x) {
+        //     console.log(x)
+        // }
+        // getNumber(6)
+
+        // 2.函数表达式 匿名函数
+        // 无提升：先定义后调用，否则报错
+        // fn(3)
+        // const fn = function(x){
+        //     console.log(x)
+        // }
+        // fn(5)
+
+        // 3.箭头函数
+        // 无提升：先定义后调用，否则报错
+        // func(4)
+        // const func = (x) => {
+        //     console.log(x)
+        // }
+        // func(4)
+
+        // 3.1 无arguments对象，可用剩余参数代替
+            // 3.1.1 arguments对象：类数组对象，包含传递给函数的所有参数
+            // function getNumber(a,b,c) {
+            // console.log(a + b + c)
+            // console.log(arguments[0])
+            // console.log(arguments[1])
+            // console.log(arguments[2])
+            // }
+            // getNumber(1,2,3)
+
+            // const func = (...x) => {
+            // console.log(x)
+            // console.log(x[0])
+            // // console.log(arguments[0]) //报错
+            // }
+            // func(4)
+
+            // 3.1.2 剩余参数 :允许函数接收不确定数量的参数，并将他们作为一个数组表示，语法使用三个点（...）表示
+            // function getSum(...number) {
+            //     let sum = 0
+            //     for (let index = 0; index < number.length; index++) {
+            //         sum += number[index]
+            //     }
+            //     console.log(sum)
+            // }
+            // getSum(56,89,78,23,15,14)
+
+        // 3.2 无自己的this，继承外层作用域的this
+            // 3.2.1 this指向
+            // 3.2.1.1 普通函数的this
+                // （1）普通函数的this
+                // 1）直接调用,this指向全局对象(浏览器中为window)
+                // let num = 45
+                // var num1 = 56
+                // function getNumber() {
+                //     console.log(this.num)
+                //     console.log(this.num1)
+                // }
+                // getNumber()
+                // 2）对象方法调用 :this指向该方法的对象
+                // let obj = {
+                //     value : 10,
+                //     print(){
+                //         console.log(this.value)
+                //     }
+                // }
+                // obj.print()
+            // 3.2.1.2 箭头函数this 继承外层作用域的this，无法通过call，apply，bind修改
+                // let obj1 = {
+                //         value : 20,
+                //         printLater(){
+                //             // 倒计时定时器
+                //             setTimeout(() => {
+                //                 console.log(this.value)
+                //             },2000)
+                //         }
+                //     }
+                //     obj1.printLater()
+
+                // 1) call:第一个参数是this指向，后面传入参数列表
+                    // function greet(greeting,punctuation) {
+                    //      console.log(`${greeting},${this.name}${punctuation}`);
+                    // }
+                    // greet()
+                    // const person = {name:'朱巴刘'}
+                    // greet.call(person,'hello','!')
+
+                // 2)apply:第一个参数是this指向，后面传入参数数组
+                    // function greet(greeting,punctuation) {
+                    //         console.log(`${greeting},${this.name}${punctuation}`);
+                    //     }
+                    //     greet()
+                    //     const person = {name:'朱巴刘'}
+                    //     greet.apply(person,['hello','!'])
+
+                // 3)bind:不会立即执行函数，返回的是一个永久改变this指向的新函数
+                        // function greet(greeting,punctuation) {
+                        //     console.log(`${greeting},${this.name}${punctuation}`);
+                        // }
+                        // greet()
+                        // const person = {name:'朱巴刘'}
+                        // let greetPerson = greet.bind(person)
+                        // greetPerson('hello','!')
+            
+        // 3.3 不能作为构造函数使用（不能通过new调用）
+
+        // 参数 形参 实参
+            // function getNumber(a,b) {
+            //     console.log(a + b)
+            //     let c = arguments[2]
+            //     console.log(a + b + c)
+            //     return true
+            // }
+            // getNumber(1) // NAN  形参默认值为undefined，避免出现NAN，一般会给形参初始化赋值
+            // getNumber(1,2) // 3
+            // getNumber(1,2,6) // 3 多余的参数传递到了函数，没有使用
+
+        // 返回值 return返回的值 
+        // 没有return语句，默认值为undefined ，return可以返回任意数据类型（函数）
+        // 函数一旦碰到return就不要会继续往下执行，，return放在函数体最后一句
+        function getNumber(a,b) {
+                return true
+                console.log(a + b)
+                // return true
+            }
+        console.log(getNumber(1,2));
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+            width: 580px;
+            height: 408px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .slider-wrapper{
+            position: relative;
+            width: 100%;
+            height: 326.25px;
+            background-image: url(./1.avif);
+            background-size: cover;
+        }
+        .slider-wrapper .conter{
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 120%;
+            height: 30%;
+            background: #14273e;
+            filter: blur(22px);
+        }
+        .slider-footer{
+            position: relative;
+            height: 81.75px;
+            background-color: #14273e;
+            padding: 12px 12px 0 12px;
+        }
+        .slider-footer p{
+            color:#fff;
+            font-size: 18px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .slider-indicator{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .slider-indicator li{
+            width: 8px;
+            height: 8px;
+            margin: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+        .slider-indicator li.active{
+            width: 12px;
+            height: 12px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slider-wrapper">
+            <div class="conter"></div>
+        </div>
+        <div class="slider-footer">
+            <p>生死一线，噬极兽群突袭龙骨村！</p>
+            <ul class="slider-indicator">
+                <li class="active"></li>
+                <li>《碧蓝航线》8周年庆典换装限时上线！</li>
+                <li>我这么可爱，你怎么忍心不约？</li>
+                <li>【毕业vlog】从哥伦比亚大学毕业啦！</li>
+                <li>投稿音乐4K内容瓜分万元奖金！</li>
+                <li>速来一起解锁更多前沿科技知识！</li>
+                <li>名校毕业当服务员被家人骂活该</li>
+                <li>有个爱记录你的男朋友，生活会是什么样</li>
+                <li>周深谏言毕业生多尝试！6月2日现场见！</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

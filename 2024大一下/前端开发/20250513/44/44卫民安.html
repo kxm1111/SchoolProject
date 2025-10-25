@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44卫民安</title>
+</head>
+
+<body>
+
+
+
+
+
+
+    <script>
+        const shoppingcart = {
+            item: [],
+            additem(name, price, quantity) {
+                this.item.push({ name, price, quantity })
+            },
+            removeItem(name) {
+                this.item = this.item.filter(item => item.name !== name)
+            },
+            calculateTotal() {
+                return this.item.reduce((sum, item => sum + item.price * item.quantity, 0))
+            },
+            clearCart() {
+                this.item = []
+            }
+        }
+        console.log(shoppingcart.item);
+        shoppingcart.additem('book', 15, 2)
+        shoppingcart.additem("clothes", 320, 5)
+        console.log(shoppingcart.item);
+        console.log(shoppingcart.calculateTotal());
+        shoppingcart.removeItem('books')
+        console.log();
+    </script>
+
+
+
+
+
+
+    <script>
+        const library = {
+            books: [],
+            addBook(title, author) {
+                this.books.push({ title, author, isBorrowed: false })
+            },
+            borrowBook(title) {
+                let b = this.books.find(b => b.title === title)
+                if (!b) {
+                    console.log('找不到该书籍信息');
+                }
+                if (b.isBorrowed) {
+                    console.log('该书籍现已被借出');
+                }
+                else {
+                    b.isBorrowed = true
+                    console.log('成功借出');
+                }
+            },
+            returnBook(title) {
+                let b = this.books.find(b => b.title === title)
+                if (!b) {
+                    console.log('该书籍不属于本图书馆');
+                }
+                else {
+                    b.isBorrowed = false
+                    console.log('成功还书');
+                }
+            },
+            listAvailableBook() {
+                return this.books.filter(b => !b.borrowBook).map(b => b.title)
+            }
+        }
+        console.log(library.books);
+        library.addBook('web前端开发实战', "李承高")
+        library.addBook('信息技术', '李垒')
+        console.log(library.books);
+        library.borrowBook('信息技术')
+
+    </script>
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

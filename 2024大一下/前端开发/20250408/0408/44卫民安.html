@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20250408</title>
+    <style>
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1 -->
+    <!-- 页面输出1-100 -->
+    <div class="number-grid" id="output"></div>
+    <script>
+        // 1
+        const container = document.getElementById("output");
+        for (let i = 1; i <= 100; i++) {
+            const div = document.createElement("div");
+            div.textContent = i;
+            div.style.textAlign = "center";
+            container.appendChild(div);
+        }
+
+    </script>
+
+    <!-- 2 -->
+    <!-- 计算1-100的奇数和并输出 -->
+    <script>
+        // 2
+        let sum = 0, i = 1;
+        while (i <= 100) {
+            if (i % 2 !== 0) sum += i;
+            i++;
+        }
+        console.log("1-100奇数和：", sum); // 输出 2500
+
+    </script>
+
+    <!-- 3 -->
+    <!-- 页面打印乘法表 -->
+    <script>
+        // 3
+        let output = "<div>";
+        for (let i = 1; i <= 9; i++) {
+            let row = "";
+            for (let j = 1; j <= i; j++) {
+                row += `<span>${j}×${i}=${i * j}</span>`;
+            }
+            output += `<div class='row'>${row}</div>`;
+        }
+        output += "</div>";
+        document.body.innerHTML = output;
+
+
+
+    </script>
+
+    <!-- 4 -->
+    <!-- 简易银行功能 1.存款 2.取款 3.查看余额 4.退出，点击退出才能退出循环 -->
+    <script>
+        // 4
+        // 简易银行功能 1.存款 2.取款 3.查看余额 4.退出，点击退出才能退出循环
+        let balance = 100; // 初始余额
+        let isRunning = true; // 控制循环的变量
+
+        while (isRunning) {
+            let operation = prompt(
+                "请选择操作：\n1. 存款\n2. 取款\n3. 查看余额\n4. 退出\n\n当前余额：" + balance + "元"
+            );
+
+            switch (operation) {
+                case "1": // 存款
+                    let deposit = parseFloat(prompt("请输入存款金额："));
+                    if (deposit > 0) {
+                        balance += deposit;
+                        alert(`存款成功！当前余额：${balance}元`);
+                    } else {
+                        alert("输入金额无效！");
+                    }
+                    break;
+
+                case "2": // 取款
+                    let withdraw = parseFloat(prompt("请输入取款金额："));
+                    if (withdraw > 0 && withdraw <= balance) {
+                        balance -= withdraw;
+                        alert(`取款成功！当前余额：${balance}元`);
+                    } else {
+                        alert("余额不足或输入金额无效！");
+                    }
+                    break;
+
+                case "3": // 查看余额
+                    alert(`当前余额：${balance}元`);
+                    break;
+
+                case "4": // 退出
+                    isRunning = false; // 终止循环
+                    alert("感谢使用，再见！");
+                    break;
+
+                default: // 无效输入
+                    alert("请输入有效的操作编号（1-4）！");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

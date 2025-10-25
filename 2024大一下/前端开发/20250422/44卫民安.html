@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        let members = ['张三', '李四', '王五', '赵六'];
+
+function showMenu() {
+    const choice = prompt('随机点名系统\n1. 查看成员\n2. 添加成员\n3. 随机点名\n4. 退出');
+    handleChoice(choice);
+}
+
+function handleChoice(choice) {
+    switch (choice) {
+        case '1':
+            alert('当前成员列表：\n' + members.join('\n'));
+            showMenu();
+            break;
+        case '2':
+            const newMember = prompt('请输入要添加的成员姓名：');
+            if (newMember && newMember.trim() !== '') {
+                members.push(newMember.trim());
+                alert('已添加成员：' + newMember.trim());
+            } else {
+                alert('请输入有效的成员姓名！');
+            }
+            showMenu();
+            break;
+        case '3':
+            if (members.length === 0) {
+                alert('成员列表为空，请先添加成员！');
+            } else {
+                alert('随机点名结果：' + members[Math.floor(Math.random() * members.length)]);
+            }
+            showMenu();
+            break;
+        case '4':
+            alert('感谢使用随机点名系统！');
+            break;
+        default:
+            alert('请输入有效的选项（1-4）！');
+            showMenu();
+    }
+}
+
+// 启动系统
+showMenu();
+    </script>
+</body>
+</html>

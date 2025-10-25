@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <form action="https://www.qq.com" 
+    id="form1" method="get">
+        用户名：<input type="text" 
+        id="uname">
+        <input type="button" 
+        value="提交"
+        onclick="Submitfrom()">
+    </form>
+</body>
+<script>
+    function Submitfrom(){
+        var uname = document.getElementById("uname").value
+        if ( uname == null || uname.trim() == ""){
+            return;
+        }
+        document.getElementById("form1").submit()
+    }
+</script>
+</html>

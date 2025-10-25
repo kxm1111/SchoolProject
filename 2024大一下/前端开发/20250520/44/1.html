@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* CSS 部分 */
+        body {
+            background-color: white;
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        .title {
+            color: red;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .list-box {
+            border: 2px solid red;
+            width: 300px;
+            height: 400px;
+            padding: 10px;
+            color: red;
+        }
+
+        #memberList {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #resultArea {
+            background: #f0f8ff;
+            /* 浅蓝色 */
+        }
+
+        button {
+            background-color: #ffffe0;
+            /* 浅黄色 */
+            border: 1px solid red;
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HTML 结构 -->
+    <h1 class="title">随机点名系统</h1>
+
+    <div class="container">
+        <!-- 左侧成员名单 -->
+        <div class="list-box">
+            <h3>成员名单：</h3>
+            <input type="file" id="fileInput" accept=".txt">
+            <ul id="memberList"></ul>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div>
+            <button onclick="toggleRoll()">开始点名</button>
+            <button onclick="reset()">重置</button>
+        </div>
+
+        <!-- 右侧结果 -->
+        <div class="list-box" id="resultArea">
+            <h3>随机点名成员：</h3>
+            <div id="currentPick"></div>
+            <div id="status"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 逻辑
+        let members = [];
+        let isRolling = false;
+        let intervalId;
+
+        // 文件读取
+        document.getElementById('fileInput').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                members = this.result.split('\n').filter(m => m.trim());
+                updateMemberList();
+            };
+            reader.readAsText(file);
+        });
+
+        // 核心点名逻辑
+        function toggleRoll() {
+            if (members.length === 0) {
+                alert('请先导入成员名单！');
+                return;
+            }
+
+            isRolling = !isRolling;
+            document.querySelector('button').textContent = isRolling ? '停止' : '开始';
+
+            if (isRolling) {
+                intervalId = setInterval(() => {
+                    const index = Math.floor(Math.random() * members.length);
+                    document.getElementById('currentPick').innerHTML =
+                        `<span class="highlight">${members[index]}</span>`;
+                }, 50);
+            } else {
+                clearInterval(intervalId);
+                const picked = document.querySelector('.highlight').textContent;
+                members = members.filter(m => m !== picked);
+                updateStatus();
+                updateMemberList();
+            }
+        }
+
+        // 辅助函数
+        function reset() {
+            members = [];
+            document.getElementById('memberList').innerHTML = '';
+            document.getElementById('currentPick').innerHTML = '';
+            document.getElementById('status').textContent = '全部成员已点完';
+        }
+
+        function updateMemberList() {
+            const list = document.getElementById('memberList');
+            list.innerHTML = members.map(m => `<li>${m}</li>`).join('');
+        }
+
+        function updateStatus() {
+            document.getElementById('status').textContent =
+                `剩余成员：${members.length} | 已点成员：${initialCount - members.length}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20250401</title>
+</head>
+
+<body>
+    <script>
+        // 1
+        // 用户输入年份，判断是否是闰年
+        var year = prompt("请输入年份：")
+        if ( (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            alert("是闰年")
+        } else {
+            alert("不是闰年")
+        }
+    </script>
+
+    <script>
+        // 2
+        // 用三元运算符判断用户输入两个数大小
+        const num1 = parseFloat(prompt("请输入第一个数字："));
+        const num2 = parseFloat(prompt("请输入第二个数字："));
+        if (!isNaN(num1) && !isNaN(num2)) {
+        const result =
+        num1 === num2 ? "两数相等" :
+        num1 > num2 ? `${num1} 大于 ${num2}` : `${num1} 小于 ${num2}`;
+        alert(result);
+        } else {
+            alert("请输入有效的数字！");
+        }
+
+    </script>
+
+    <script>
+        // 3
+        // 用if分支语句和三元运算符来格式化时间：
+        // 用户输入时分秒，
+        // 小于10进行补零操作
+        // 获取用户输入（浏览器弹窗方式）
+        const hour = parseInt(prompt("请输入小时（0-23）："));
+        const minute = parseInt(prompt("请输入分钟（0-59）："));
+        const second = parseInt(prompt("请输入秒（0-59）："));
+        if (isNaN(hour) || isNaN(minute) || isNaN(second)) {
+            alert("输入必须为数字！");
+        } else if (hour < 0 || hour > 23 || minute < 0 || minute > 59 || second < 0 || second > 59) {
+            alert("输入范围无效！");
+        } else {
+        function formatTime(h, m, s) {
+        let hh;
+        if (h < 10) {
+        hh = `0${h}`;
+        } else {
+        hh = `${h}`;
+        }
+        const mm = m < 10 ? `0${m}` : `${m}`;
+        const ss = s < 10 ? `0${s}` : `${s}`;
+        return `${hh}:${mm}:${ss}`;
+        }
+        alert(`格式化时间：${formatTime(hour, minute, second)}`);
+        }
+    </script>
+
+    <script>
+        // 4
+        // 用switch语句，
+        // 做一个简单的计算器，
+        // + - * /，
+        // 并输出相应的值，
+        // 规定两个数字之间操作
+        // 获取用户输入的两个数字和操作符
+        let number1 = parseFloat(prompt("请输入第一个数字："));
+        let operator = prompt("请输入操作符（+、-、*、/）：");
+        let number2 = parseFloat(prompt("请输入第二个数字："));
+        // 初始化结果变量
+        let result;
+        // 使用 switch 语句根据操作符进行计算
+        switch (operator) {
+            case "+":
+                result = number1 + number2;
+                break;
+            case "-":
+                result = number1 - number2;
+                break;
+            case "*":
+                result = number1 * number2;
+                break;
+            case "/":
+                if (number2 !== 0) {
+                    result = number1 / number2;
+                } else {
+                    alert("除数不能为0！");
+                    result = "错误";
+                }
+                break;
+            default:
+                alert("无效的操作符！");
+                result = "错误";
+        }
+        // 输出结果
+        if (result !== "错误") {
+            alert(`计算结果为：${result}`);
+        }
+    </script>
+
+</body>
+
+</html>

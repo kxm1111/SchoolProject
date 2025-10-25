@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 360px;
+            height: 149px;
+            /* background: linear-gradient(to bottom right,#00a4ff 50%,#fff 50%); */
+            background: linear-gradient(90deg,#00a4ff,#00b5f7);
+            border-radius: 9px;
+            color: #fff;
+        }
+        .box .box1{
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            width: 14px;
+            height: 18px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .box .content{
+            padding: 18px;
+        }
+        .box .content .title{
+            margin-bottom: 6px;
+        }
+        .box .content .desc{
+            margin-bottom: 20px;
+            font-size: smaller;
+        }
+        .btn{
+            width: 320px;
+            height: 40px;
+            background-color: #fff;
+            border: none;
+            border-radius: 9px;
+            color: #00b1f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">X</div>
+        <div class="content">
+            <div class="title"><strong>登录哔哩哔哩，高清视频免费看！</strong> </div>
+            <div class="desc">更多登陆后权限等你解锁</div>
+            <button class="btn"><strong>立即登录</strong> </button>
+        </div>
+    </div>
+    <script>
+        const box = document.querySelector('.box')
+        const box1 = document.querySelector('.box1')
+        box1.addEventListener('click',function(){
+            box.style.display = 'none'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>弹窗示例</title>
+    <style>
+        .popup {
+            width: 300px;
+            padding: 10px;
+            background-color: #00aaff;
+            color: white;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup img {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .popup .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .popup button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: white;
+            color: #00aaff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .popup button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="popup" class="popup">
+        <!-- <img src="https://via.placeholder.com/50" alt="卡通形象"> -->
+        <div class="close" onclick="closePopup()">&times;</div>
+        <p>登录哔哩哔哩，高清视频免费看！</p>
+        <p>更多登录后权益等你解锁</p>
+        <button onclick="login()">立即登录</button>
+    </div>
+
+    <script>
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function login() {
+            alert('登录功能尚未实现');
+        }
+    </script>
+
+</body>
+
+</html>

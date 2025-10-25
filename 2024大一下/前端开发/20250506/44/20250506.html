@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    20250506
+
+    作用域
+
+    全局作用域：
+    全局有效
+    作用于所有的代码执行的环境
+    整个script标签内部
+    或者单独的js文件
+
+    局部作用域：
+    函数内的代码环境
+    也叫函数作用域
+
+    全局变量：
+    （函数外部let变量）
+    在任何区域都可以修改
+
+    局部变量：
+    （函数内部let变量）
+    只能在当前函数内部访问和修改
+
+
+    <script>
+        let num = 20
+        function fn() {
+            num = 10
+        }
+        fn()
+        console.log(num);
+    </script>
+
+    闭包：
+    函数能够记住并返回其词法作用域
+    即使函数在其词法作用域外执行
+
+    用途：
+    封装私有变量
+    模块模式
+
+    慎用：
+    闭包可能会导致内存泄漏（长期持有外部变量引用）
+    需要合理使用
+
+    <script>
+        function createCounter() {
+            let count = 0
+            return {
+                increment: () => ++count,
+                get: () => count
+            }
+        }
+        let conuter = createCounter()
+        conuter.increment()
+        console.log(conuter.get());
+    </script>
+
+    <script>
+        function makeAdder(x) {
+            x + y
+            return
+        }
+    </script>
+
+
+    <script>
+
+    </script>
+
+
+    访问原则
+    先内部
+    后全局
+
+    匿名函数
+    使用方法
+    1.函数表达式
+    2.立即执行函数
+
+    立即执行函数：
+    不需要调用
+    立即执行
+    多个立即执行函数一定要用;分隔开
+
+
+    方式1
+    <script>
+        (function () { console.log('小美') })()
+    </script>
+
+    方式2
+    <script>
+            (function () { console.log('大美') }())
+    </script>
+
+    对象
+    对象定义
+    1.字面量
+    <script>
+        let obj = {
+            name: 'xm',
+            age: 18,
+            gender: '女',
+            sayHi: function () {
+                document.write('hi')
+            }
+        }
+        console.log(obj.name);
+        console.log(obj['name']);
+    </script>
+
+    2.构造函数
+    <script>
+        let obj1 = new Object()
+    </script>
+
+    3.ES6 类
+    constructor：
+    用于创建和初始化class对象实例的特殊方法
+    一个类不能有一个以上的constructor
+    <script>
+        class Person {
+            constructor(name) { this.name = name }
+            greet() { console.log(`hi,${this.name}`); }
+        }
+        let xm = new Person('xm')
+        console.log(xm.greet());
+    </script>
+
+
+</body>
+
+</html>

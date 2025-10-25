@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44卫民安</title>
+</head>
+
+<body>
+
+
+
+
+
+    
+    <script>
+        const shoppingcart = {
+            item: [],
+            additem(name, price, quantity) {
+                this.item.push({ name, price, quantity })
+            },
+            removeItem(name) {
+                this.item = this.item.filter(item => item.name !== name)
+            },
+            calculateTotal() {
+                return this.item.reduce((sum, item => sum + item.price * item.quantity, 0))
+            },
+            clearCart() {
+                this.item = []
+            }
+        }
+        console.log(shoppingcart.item);
+        shoppingcart.additem('book', 15, 2)
+        shoppingcart.additem("clothes", 320, 5)
+        console.log(shoppingcart.item);
+        console.log(shoppingcart.calculateTotal());
+        shoppingcart.removeItem('books')
+        console.log();
+    </script>
+
+
+
+
+
+
+    <script>
+        class Book {
+            constructor(title, author) {
+                this.title = title;
+                this.author = author;
+                this.isBorrowed = false;
+            }
+        }
+
+        class Library {
+            constructor() {
+                this.books = [];
+            }
+
+            addBook(title, author) {
+                if (this.books.some(b => b.title === title)) return "该书已存在";
+                this.books.push(new Book(title, author));
+                return `《${title}》添加成功`;
+            }
+
+            borrowBook(title) {
+                const book = this.books.find(b => b.title === title);
+                if (!book) return "找不到该书";
+                if (book.isBorrowed) return "该书已被借出";
+                book.isBorrowed = true;
+                return `《${title}》借出成功`;
+            }
+
+            returnBook(title) {
+                const book = this.books.find(b => b.title === title);
+                if (!book) return "找不到该书";
+                if (!book.isBorrowed) return "该书未被借出";
+                book.isBorrowed = false;
+                return `《${title}》归还成功`;
+            }
+
+            getAvailableBooks() {
+                return this.books
+                    .filter(book => !book.isBorrowed)
+                    .map(book => book.title);
+            }
+        }
+        const library = new Library();
+
+        // 添加书籍
+        library.addBook("JavaScript高级程序设计", "Nicholas C.Zakas");
+        library.addBook("代码整洁之道", "Robert C. Martin");
+
+        // 借阅操作
+        console.log(library.borrowBook("JavaScript高级程序设计")); // 借出成功
+        console.log(library.borrowBook("不存在的书"));            // 找不到该书
+
+        // 获取可借书籍
+        console.log(library.getAvailableBooks()); // ["代码整洁之道"]
+
+        // 归还书籍
+        console.log(library.returnBook("JavaScript高级程序设计")); // 归还成功
+        console.log(library.getAvailableBooks()); // 返回两本书名
+
+    </script>
+
+
+
+
+
+
+
+    <script>
+        const inventoryManager = {
+            products: [],
+            sales: [],
+
+            addProduct(id, name, stock, price) {
+                if (this.products.some(p => p.id === id)) return `ID ${id} 已存在`;
+                this.products.push({
+                    id: Number(id),
+                    name: name,
+                    stock: Math.max(0, Number(stock)),
+                    price: Number(price)
+                });
+                return `${name} 添加成功`;
+            },
+
+            sellProduct(id, quantity) {
+                const product = this.products.find(p => p.id === id);
+                if (!product) return "商品不存在";
+                if (product.stock < quantity) return `${product.name} 库存不足`;
+
+                product.stock -= quantity;
+                this.sales.push({
+                    id: product.id,
+                    quantity: quantity,
+                    total: product.price * quantity
+                });
+                return `成功售出 ${product.name} x${quantity}`;
+            },
+
+            getTotalSales() {
+                return this.sales.reduce((sum, sale) => sum + sale.total, 0).toFixed(2);
+            },
+
+            restockProduct(id, quantity) {
+                const product = this.products.find(p => p.id === id);
+                if (!product) return "商品不存在";
+                product.stock += Math.max(0, Number(quantity));
+                return `${product.name} 补货成功，当前库存 ${product.stock}`;
+            }
+        };
+
+
+        // 添加商品
+        console.log(inventoryManager.addProduct(101, "无线耳机", 100, 299));
+        console.log(inventoryManager.addProduct(102, "智能手表", 50, 799));
+
+        // 销售操作
+        console.log(inventoryManager.sellProduct(101, 2)); // 成功售出 无线耳机 x2
+        console.log(inventoryManager.sellProduct(102, 3)); // 成功售出 智能手表 x3
+
+        // 库存补充
+        console.log(inventoryManager.restockProduct(101, 50)); // 无线耳机 补货成功，当前库存 148
+
+        // 查看总销售额
+        console.log("总销售额: ¥" + inventoryManager.getTotalSales()); // ¥2995.00
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
